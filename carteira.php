@@ -1,10 +1,3 @@
-<?php
-
-include_once './includes/session.php';
-
-$investimento = $_GET['inv'] == "f" ? 'Fixo' : 'Variável';
-
-?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -24,7 +17,7 @@ $investimento = $_GET['inv'] == "f" ? 'Fixo' : 'Variável';
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <p class="lead">
-            <?php echo "Investimento: $investimento"; ?>
+            Carteira
         </p>
     </div>
 
