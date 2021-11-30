@@ -35,7 +35,9 @@
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Começar a investir</li>
+            <li> <strong>A renda fixa é uma modalidade de investimento 
+              onde a rentabilidade é previsível.<strong></li>  
+
             </ul>
             <button type="button" class="btn btn-lg btn-block btn-easier">Investir</button>
           </div>
@@ -46,7 +48,8 @@
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
-                <li>Começar a investir</li>
+            <li><strong>A renda varíavel é um tipo de investimento que não 
+              garante nem um ganho fixo nem a devolução do total que foi aplicado.<strong></li>    
             </ul>
             <button type="button" class="btn btn-lg btn-block btn-easier">Investir</button>
           </div>
@@ -57,7 +60,7 @@
           </div>
           <div class="card-body">
             <ul class="list-unstyled mt-3 mb-4">
-                <li>Meus Investimentos</li>
+                <li>Aqui você poderá visualizar seus investimento e a rentabilidade</li>
             </ul>
             <button type="button" class="btn btn-lg btn-block btn-easier">Visualizar</button>
           </div>
