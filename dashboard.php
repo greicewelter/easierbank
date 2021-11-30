@@ -61,8 +61,9 @@ include_once './includes/session.php';
                 </div>
             </div>
         </div>
-        <?php include_once './includes/footer.php' ?>
     </div>
+
+    <?php include_once './includes/footer.php' ?>
 </body>
 
 </html>
