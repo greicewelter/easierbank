@@ -1,19 +1,30 @@
+html,
 body {
-    background-color: #F8B3CC;
-}
-.btn-easier{
-    background-color: #DB5C87;
-    border: 1px solid #9D173C;
-    color: #fff !important;
-}
-.btn-easier:hover{
-    opacity: 0.9;
-    border: 1px solid #9D173C !important;;
+  background-color: #f8b3cc;
+  height: 100%;
 }
 
-.font-size-16{
-    font-size: 16px;
+.btn-easier {
+  background-color: #db5c87;
+  border: 1px solid #9d173c;
+  color: #fff !important;
 }
-.login:hover{
-    border: 1px solid #9D173C ;
+.btn-easier:hover {
+  opacity: 0.9;
+}
+
+.font-size-16 {
+  font-size: 16px;
+}
+
+.notification {
+  position: absolute;
+  width: 100%;
+}
+
+.img-inv {
+  border-bottom: 1px solid #ccc;
+}
+.img-not-final {
+  height: 145px;
 }
