@@ -31,35 +31,45 @@ include_once './includes/session.php';
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Renda Fixa</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <ul class="list-unstyled mt-3 mb-4 text-justify">
-                        <li><strong>A renda fixa é uma modalidade de investimento 
-              onde a rentabilidade é previsível.</strong></li>
+                        <li>
+                            <strong>
+                                A renda fixa é uma modalidade de investimento
+                                onde a rentabilidade é previsível.
+                            </strong>
+                        </li>
                     </ul>
-                    <a type="button" class="btn btn-lg btn-block btn-easier" href="/investimento.php?inv=f">Investir</a>
+                    <a class="align-self-end btn btn-lg btn-block btn-easier" href="/investimento.php?inv=f" style="margin-top: auto;">Investir</a>
                 </div>
             </div>
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Renda Variável</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <ul class="list-unstyled mt-3 mb-4 text-justify">
-                        <li><strong>A renda varíavel é um tipo de investimento que não 
-              garante nem um ganho fixo nem a devolução do total que foi aplicado.</strong</li>
+                        <li>
+                            <strong>
+                                A renda varíavel é um tipo de investimento que não
+                                garante nem um ganho fixo nem a devolução do total que foi aplicado.
+                            </strong>
+                        </li>
                     </ul>
-                    <a class="btn btn-lg btn-block btn-easier" href="/investimento.php?inv=v">Investir</a>
+                    <a class="align-self-end btn btn-lg btn-block btn-easier" href="/investimento.php?inv=v" style="margin-top: auto;">Investir</a>
                 </div>
             </div>
             <div class="card mb-4 shadow-sm">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">Carteira</h4>
                 </div>
-                <div class="card-body">
+                <div class="card-body d-flex flex-column">
                     <ul class="list-unstyled mt-3 mb-4 text-justify">
-                        <li><strong>Aqui você poderá visualizar seus <br>investimento e a rentabilidade.</strong></li>
+                        <li>
+                            <strong>Aqui você poderá visualizar seus <br>investimento e a rentabilidade.</strong>
+                        </li>
                     </ul>
-                    <a class="btn btn-lg btn-block btn-easier" href="/carteira.php">Visualizar</a>
+                    <a class="align-self-end btn btn-lg btn-block btn-easier" href="/carteira.php" style="margin-top: auto;">Visualizar</a>
                 </div>
             </div>
         </div>
