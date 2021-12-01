@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 $senha = md5($senha);
 
-$consulta = $con->prepare("select id, nome, email from clientes where email = '$email' and senha = '$senha'");
+$consulta = $con->prepare("select id, nome, email, saldo from clientes where email = '$email' and senha = '$senha'");
 $consulta->execute();
 $result = $consulta->fetch(PDO::FETCH_ASSOC);
 

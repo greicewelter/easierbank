@@ -1,4 +1,16 @@
-<?php include_once './includes/start.php' ?>
+<?php include_once './includes/start.php'; 
+include_once './includes/session.php';
+include_once './includes/conecta.php';
+
+
+$consulta = $con->prepare("select * from carteiras ");
+$consulta->execute();
+$result = $consulta->fetchAll();
+print_r($result);
+
+
+?>
+
 <!doctype html>
 <html lang="pt-br">
 

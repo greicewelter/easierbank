@@ -1,6 +1,15 @@
 <?php
 include_once './includes/start.php';
 include_once './includes/session.php';
+include_once './includes/conecta.php';
+
+$id = $_GET['id'];
+$consulta = $con->prepare("select * from investimentos where id='$id'");
+$consulta->execute();
+$result = $consulta->fetch(PDO::FETCH_ASSOC);
+
+
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -21,12 +30,14 @@ include_once './includes/session.php';
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <p class="h2">
-            <b>Aqui o nome do investimento</b>
+            <b><?php echo $result['nome']?></b>
         </p>
+        <p><?php echo $result['descricao']?></p>
     </div>
 
     <div class="container">
         <form class="form-inline form-investir" method="post" action="/actions/investir.php">
+            <input type="hidden" name="investimento" value="<?php echo $result['id'] ?>">
             <div class="form-group mx-sm-3">
                 <label for="inputPassword2" class="sr-only">Valor</label>
                 <input name="valor" type="text" class="form-control" placeholder="Valor">
