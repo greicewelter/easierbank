@@ -1,116 +1,17 @@
 <?php
 include_once './includes/start.php';
 include_once './includes/session.php';
+include_once './includes/conecta.php';
 
 $tipoInvestimento = $_GET['inv'] == "f" ? 'Fixa' : 'Variável';
+$tipo = $_GET['inv'] == "f" ? 'f' : 'v';
 
-$arrInvestimentos = [
-    [
-        'id' => 1,
-        'nome' => 'ESG Global Dolar',
-        'imagem' => 'investimento1.png',
-        'descricao' => '
-            <b>Acumulado do ano:</b> 17,22% </br>
-            <b>Últimos mês:</b> 0,87% </br>
-            <b>Aplicação Mínima:</b> R$ 100 </br></br>
-            <b>Taxa de admin.:</b> 0,50% ao ano </br>
-            <b>Investimento para:</b> longo prazo </br>
-            <b>Grau de risco (de 0 a 100):</b> 30
-        ',
-    ],
-    [
-        'id' => 2,
-        'nome' => 'Lideranças Femininas',
-        'imagem' => 'investimento2.jpg',
-        'descricao' => '
-            <b>Acumulado do ano:</b> 13,80% </br>
-            <b>Últimos mês:</b> -4,39% </br>
-            <b>Aplicação Mínima:</b> R$ 100 </br></br>
-            <b>Taxa de admin.:</b> 0,50% ao ano </br>
-            <b>Investimento para:</b> longo prazo </br>
-            <b>Grau de risco (de 0 a 100):</b> 33
-        ',
-    ],
-    [
-        'id' => 3,
-        'nome' => 'Saúde Global FIM',
-        'imagem' => 'investimento3.jpg',
-        'descricao' => '
-            <b>Acumulado do ano:</b> 9,22%</br>
-            <b>Últimos mês:</b> -5,11%</br>
-            <b>Aplicação Mínima:</b> R$ 100</br></br>
-            <b>Taxa de admin.:</b> 0,50% ao ano</br>
-            <b>Investimento para:</b> longo prazo</br>
-            <b>Grau de risco (de 0 a 100):</b> 16
-        ',
-    ],
-    [
-        'id' => 4,
-        'nome' => 'Tecnologia FIM',
-        'imagem' => 'investimento4.jpg',
-        'descricao' => '
-            <b>Acumulado no ano:</b> 14,38%</br>
-            <b>Últimos mês:</b> -5,79%</br>
-            <b>Aplicação Mínima:</b> R$ 100</br></br>
-            <b>Taxa de admin.:</b> 0,50% ao ano</br>
-            <b>Investimento para:</b> longo prazo</br>
-            <b>Grau de risco (de 0 a 100):</b> 33
-        ',
-    ],
-    [
-        'id' => 5,
-        'nome' => 'Bolsa Chinesa FIM',
-        'imagem' => 'investimento5.jpg',
-        'descricao' => '
-            <b>Acumulado do ano:</b> -15,18%</br>
-            <b>Últimos mês:</b> -1,07%</br>
-            <b>Aplicação Mínima:</b> R$ 100</br></br>
-            <b>Taxa de admin.:</b> 0,50% ao ano</br>
-            <b>Investimento para:</b> longo prazo</br>
-            <b>Grau de risco (de 0 a 100):</b> 40
-        ',
-    ],
-    [
-        'id' => 6,
-        'nome' => 'Investimento 6',
-        'imagem' => 'investimento6.jpg',
-        'descricao' => 'Investimento 6',
-    ],
-    [
-        'id' => 7,
-        'nome' => 'Investimento 7',
-        'imagem' => 'investimento7.jpg',
-        'descricao' => 'Investimento 7',
-    ],
-    [
-        'id' => 8,
-        'nome' => 'Investimento 8',
-        'imagem' => 'investimento8.jpg',
-        'descricao' => 'Investimento 8',
-    ],
-    [
-        'id' => 9,
-        'nome' => 'Investimento 9',
-        'imagem' => 'investimento9.jpg',
-        'descricao' => 'Investimento 9',
-    ],
-];
+$consulta = $con->prepare("select * from investimentos where tipo = '$tipo'");
+$consulta->execute();
+$result = $consulta->fetchAll();
 
-if ($_GET['inv'] == "f") {
-    $arrInvestimentos = [
-        [
-            'id' => 1,
-            'nome' => 'CDB 300% do CDI',
-            'imagem' => 'investimento4.jpg',
-            'descricao' => '
-                <b>Taxa de rentabilidade:</b> 300% CDI<br/>
-                <b>Carência:</b> 1 dia<br/>
-                <b>Vencimento:</b> Fev/2022<br/>
-                <b>Investimento máximo por CPF:</b> R$ 7.000,00*<br/>
-                <b>Investimento mínimo por CPF:</b> R$ 500,00',
-        ],
-    ];
-}
+
+
 
 ?>
 <!doctype html>
@@ -140,10 +41,10 @@ if ($_GET['inv'] == "f") {
     <div class="container">
         <div class="card-deck text-center">
             <?php
-            if (!empty($arrInvestimentos)) {
-                foreach ($arrInvestimentos as $k => $investimento) { ?>
+            if (!empty($result)) {
+                foreach ($result as $k => $investimento) { ?>
                     <div class="card mb-4" style="width: 18rem;">
-                        <img class="card-img-top img-inv <?php echo ($k + 1) == count($arrInvestimentos) && ($k + 1) % 3 != 0 ? '' : 'img-not-final' ?>" src="./assets/img/investimentos/<?php echo $investimento['imagem'] ?>">
+                        <img class="card-img-top img-inv <?php echo ($k + 1) == count($result) && ($k + 1) % 3 != 0 ? '' : 'img-not-final' ?>" src="./assets/img/investimentos/investimento<?php echo $investimento['id'] ?>.jpg">
                         <div class="card-body">
                             <h4 class="card-title">
                                 <?php echo $investimento['nome'] ?>
