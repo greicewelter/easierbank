@@ -1,9 +1,11 @@
 <?php
 
 
- $menssage =unserialize($_SESSION['alert']);
+ $menssage=[];
  if(isset($_SESSION['alert'])){
-     unset($_SESSION['alert']);
+    $menssage =unserialize($_SESSION['alert']); 
+    unset($_SESSION['alert']);
+
  }
  
 
