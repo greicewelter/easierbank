@@ -52,7 +52,7 @@ $result = $consulta->fetchAll();
                             <div class="card-text mb-3">
                                 <?php echo $investimento['descricao'] ?>
                             </div>
-                            <a href="#" class="btn btn-easier">Investir</a>
+                            <a href="/investir.php?id=<?php echo $investimento['id']; ?>" class="btn btn-easier">Investir</a>
                         </div>
                     </div>
             <?php

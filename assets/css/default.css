@@ -28,3 +28,21 @@ body {
 .img-not-final {
   height: 145px;
 }
+
+.form-investir {
+  /* border: 1px solid #fff; */
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.form-investir input {
+  background-color: #f8b3cc;
+  border: 1px solid #fd6ea3;
+}
+
+.form-investir input:active,
+.form-investir input:focus {
+  background-color: #f8b3cc;
+  border: 1px solid #fd6ea3 !important;
+}
