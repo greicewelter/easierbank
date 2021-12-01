@@ -1,5 +1,5 @@
 <?php
-
+include_once './includes/init.php';
 include_once './includes/session.php';
 
 $tipoInvestimento = $_GET['inv'] == "f" ? 'Fixa' : 'Variável';

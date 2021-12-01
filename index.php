@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+<?php include_once './includes/init.php' ?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -16,7 +14,7 @@ session_start();
 
 <body>
     <div class="container">
-    <?php include_once './includes/alert.php' ?>
+        <?php include_once './includes/alert.php' ?>
         <div class="text-center">
             <img class="m-4" src="assets/img/logo.png" width="120">
         </div>
@@ -29,13 +27,13 @@ session_start();
         <div class="mb-4 mt-4">
             <form class="card form-signin" method="POST" action="/actions/login.php">
                 <label for="inputEmail" class="sr-only">E-mail</label>
-                
+
                 <input type="email" name="email" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus autocomplete="off">
-                
+
                 <label for="inputPassword" class="sr-only">Senha</label>
-                
+
                 <input type="password" name="senha" id="inputPassword" class="form-control" placeholder="Senha" required>
-                
+
                 <button class="btn btn-lg btn-block mt-4 btn-easier" type="submit">Login</button>
             </form>
         </div>
