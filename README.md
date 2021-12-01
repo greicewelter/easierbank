@@ -1,3 +1,0 @@
-# easierbank
-
-Interdisciplinar CTI
