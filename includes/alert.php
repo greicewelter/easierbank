@@ -1,12 +1,10 @@
 <?php
-$menssage = [];
 
-// $menssage = [
-//     'tipo' => 'alert-success',
-//     'mensagem' => 'Cadastro realizado com sucesso!',
-// ];
 
-// alert-success 
+ $menssage =unserialize($_SESSION['ALERT']);
+ unset($_SESSION['ALERT']);
+
+ //alert-success 
 // alert-warning 
 // alert-info 
 

@@ -32,7 +32,7 @@ include_once './includes/session.php';
                     <h4 class="my-0 font-weight-normal">Renda Fixa</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                    <ul class="list-unstyled mt-3 mb-4 text-justify">
+                    <ul class="list-unstyled mt-3 mb-4 text-center">
                         <li>
                             <strong>
                                 A renda fixa é uma modalidade de investimento
@@ -48,7 +48,7 @@ include_once './includes/session.php';
                     <h4 class="my-0 font-weight-normal">Renda Variável</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                    <ul class="list-unstyled mt-3 mb-4 text-justify">
+                    <ul class="list-unstyled mt-3 mb-4 text-center">
                         <li>
                             <strong>
                                 A renda varíavel é um tipo de investimento que não
@@ -64,9 +64,9 @@ include_once './includes/session.php';
                     <h4 class="my-0 font-weight-normal">Carteira</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                    <ul class="list-unstyled mt-3 mb-4 text-justify">
+                    <ul class="list-unstyled mt-3 mb-4 text-center">
                         <li>
-                            <strong>Aqui você poderá visualizar seus <br>investimento e a rentabilidade.</strong>
+                            <strong>Aqui você poderá visualizar seus investimento e a rentabilidade.</strong>
                         </li>
                     </ul>
                     <a class="align-self-end btn btn-lg btn-block btn-easier" href="/carteira.php" style="margin-top: auto;">Visualizar</a>
