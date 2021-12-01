@@ -1,8 +1,11 @@
 <?php
 
 
- $menssage =unserialize($_SESSION['ALERT']);
- unset($_SESSION['ALERT']);
+ $menssage =unserialize($_SESSION['alert']);
+ if(isset($_SESSION['alert'])){
+     unset($_SESSION['alert']);
+ }
+ 
 
  //alert-success 
 // alert-warning 
