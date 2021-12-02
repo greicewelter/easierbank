@@ -60,7 +60,7 @@ $result = $consulta->fetchAll();
                     <?php } ?>
                     <tr>
                         <td class="text-right" colspan="4">
-                            <b>Total:</b>
+                            <b>Total Investido:</b>
                         </td>
                         <td class="text-right">R$ <?php echo number_format($total, 2); ?></td>
                         <td></td>

@@ -53,10 +53,34 @@
         die;
     }
 
+    $stmt =  $con->prepare('INSERT INTO carteiras (cliente_id, investimento_id, data_inicial, data_final, valor) 
+                            VALUES(:cliente_id, :investimento_id, :data_inicial, :data_final, :valor)');
+    $stmt->execute(array(
+        ':cliente_id'      => $usuario['id'],
+        ':investimento_id' => $investimento,
+        ':data_inicial'    => date('Y-m-d'),
+        ':data_final'      => $result['data_vencimento'],
+        ':valor'           => $valor,
+    ));
 
+    if ($stmt->rowCount()) {
+        $menssage = [
+            'tipo' => 'alert-success',
+            'mensagem' => 'Investimento realizado com sucesso!',
+        ];
 
+        $_SESSION['alert'] = serialize($menssage);
 
-    print_r($result);
-    // print_r($_POST);
-    // print_r($usuario);
-    // print_r($carteira);
+        header("Location: /carteira.php");
+        die;
+    } else {
+        $menssage = [
+            'tipo' => 'alert-warning',
+            'mensagem' => "Erro ao realizar investimento, tente novamente.",
+        ];
+
+        $_SESSION['alert'] = serialize($menssage);
+
+        header("Location: /investir.php?id=$investimento");
+        die;
+    }

@@ -1,6 +1,12 @@
 <?php
 include_once './includes/start.php';
 include_once './includes/session.php';
+include_once './includes/conecta.php';
+
+$consulta = $con->prepare("select sum(valor) as total from carteiras where cliente_id = '{$usuario['id']}'");
+$consulta->execute();
+$carteira = $consulta->fetch(PDO::FETCH_ASSOC);
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -71,6 +77,27 @@ include_once './includes/session.php';
                         </li>
                     </ul>
                     <a class="align-self-end btn btn-lg btn-block btn-easier" href="/carteira.php" style="margin-top: auto;">Visualizar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card-deck mb-3 text-center">
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Meu Saldo</h4>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <b>R$ <?php echo number_format($usuario['saldo'], 2); ?></b>
+                </div>
+            </div>
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">Valor Investido</h4>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <b>R$ <?php echo number_format($carteira['total'], 2); ?></b>
                 </div>
             </div>
         </div>

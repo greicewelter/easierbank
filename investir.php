@@ -8,8 +8,6 @@ $consulta = $con->prepare("select * from investimentos where id='$id'");
 $consulta->execute();
 $result = $consulta->fetch(PDO::FETCH_ASSOC);
 
-
-
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -30,9 +28,9 @@ $result = $consulta->fetch(PDO::FETCH_ASSOC);
 
     <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <p class="h2">
-            <b><?php echo $result['nome']?></b>
+            <b><?php echo $result['nome'] ?></b>
         </p>
-        <p><?php echo $result['descricao']?></p>
+        <p><?php echo $result['descricao'] ?></p>
     </div>
 
     <div class="container">
@@ -42,7 +40,7 @@ $result = $consulta->fetch(PDO::FETCH_ASSOC);
                 <label for="inputPassword2" class="sr-only">Valor</label>
                 <input name="valor" type="text" class="form-control" placeholder="Valor">
             </div>
-            <a class="btn btn-easier mr-2" href="/investimento.php?inv=<?php echo 'f'; ?>">Cancelar</a>
+            <a class="btn btn-easier mr-2" href="/investimento.php?inv=<?php echo $result['tipo']; ?>">Cancelar</a>
             <button type="submit" class="btn btn-easier">Investir</button>
         </form>
     </div>
