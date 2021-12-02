@@ -2,15 +2,11 @@
 include_once './includes/session.php';
 include_once './includes/conecta.php';
 
-
-$consulta = $con->prepare("select * from carteiras ");
+$consulta = $con->prepare("select c.*, i.nome from carteiras c inner join investimentos i on i.id=c.investimento_id");
 $consulta->execute();
 $result = $consulta->fetchAll();
-// print_r($result);
-
 
 ?>
-
 <!doctype html>
 <html lang="pt-br">
 
@@ -40,23 +36,40 @@ $result = $consulta->fetchAll();
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col" class="text-center">Investimento</th>
-                    <th scope="col" class="text-center">Valor</th>
                     <th scope="col" class="text-center">Data Inicial</th>
                     <th scope="col" class="text-center">Data Final</th>
+                    <th scope="col" class="text-center">Valor</th>
                     <th scope="col" class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row" class="align-middle">1</th>
-                    <td class="align-middle">Lideranças Femininas</td>
-                    <td class="text-right align-middle">R$ 100</td>
-                    <td class="text-right align-middle">10/02/2021</td>
-                    <td class="text-right align-middle">10/02/2022</td>
-                    <td class="text-center align-middle">
-                        <a class="btn btn-easier mr-2" href="/investir.php?id=<?php echo 'f'; ?>">Detalhes</a>
-                    </td>
-                </tr>
+                <?php if (!empty($result)) {
+                    $total = 0;
+                    foreach ($result as $k => $carteira) {
+                        $total += floatval($carteira['valor']);  ?>
+                        <tr>
+                            <th scope="row" class="align-middle"><?php echo $k + 1 ?></th>
+                            <td class="align-middle"><?php echo $carteira['nome'] ?></td>
+                            <td class="text-right align-middle"><?php echo date_format(date_create($carteira['data_inicial']), "d/m/Y"); ?></td>
+                            <td class="text-right align-middle"><?php echo date_format(date_create($carteira['data_final']), "d/m/Y"); ?></td>
+                            <td class="text-right align-middle">R$ <?php echo number_format($carteira['valor'], 2); ?></td>
+                            <td class="text-center align-middle">
+                                <a class="btn btn-easier mr-2" href="/investir.php?id=<?php echo $carteira['investimento_id'] ?>">Detalhes</a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                    <tr>
+                        <td class="text-right" colspan="4">
+                            <b>Total:</b>
+                        </td>
+                        <td class="text-right">R$ <?php echo number_format($total, 2); ?></td>
+                        <td></td>
+                    </tr>
+                <?php  } else { ?>
+                    <tr>
+                        <td colspan="6" class="text-center align-middle">Você ainda não possui investimentos.</td>
+                    </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>
