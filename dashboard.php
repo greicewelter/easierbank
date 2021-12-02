@@ -89,7 +89,13 @@ $carteira = $consulta->fetch(PDO::FETCH_ASSOC);
                     <h4 class="my-0 font-weight-normal">Meu Saldo</h4>
                 </div>
                 <div class="card-body d-flex flex-column">
-                    <b>R$ <?php echo number_format($usuario['saldo'], 2); ?></b>
+                    <b>
+                        R$
+                        <?php
+                        $saldo = $usuario['saldo'] - $carteira['total'];
+                        echo number_format($saldo < 0 ? 0 : $saldo, 2);
+                        ?>
+                    </b>
                 </div>
             </div>
             <div class="card mb-4 shadow-sm">
